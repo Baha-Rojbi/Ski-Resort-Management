@@ -8,6 +8,8 @@ import lombok.ToString;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -23,4 +25,10 @@ public class Skieur implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dateNaissance;
     private String ville;
+    @ManyToMany(mappedBy = "skieurs")
+    private Set<Piste> pistes;
+    @OneToMany(mappedBy = "skieur")
+    private Set<Inscription> inscriptions;
+    @OneToOne
+    private Abonnemenet abonnemenet;
 }

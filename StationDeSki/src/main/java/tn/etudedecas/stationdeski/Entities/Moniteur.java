@@ -1,9 +1,6 @@
 package tn.etudedecas.stationdeski.Entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,6 +8,7 @@ import lombok.ToString;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -24,4 +22,6 @@ public class Moniteur implements Serializable {
     private String prenomM;
     @Temporal(TemporalType.DATE)
     private Date dateRecu;
+    @OneToMany
+    private Set<Cours> cours;
 }
