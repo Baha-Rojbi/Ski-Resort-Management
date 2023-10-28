@@ -2,7 +2,7 @@ package tn.etudedecas.stationdeski.Services;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import tn.etudedecas.stationdeski.Entities.Abonnemenet;
+import tn.etudedecas.stationdeski.Entities.Abonnement;
 import tn.etudedecas.stationdeski.Respositories.AbonnementRepositories;
 
 import java.util.List;
@@ -11,22 +11,22 @@ import java.util.List;
 public class AbonnementServiceImp implements IAbonnementService{
     public AbonnementRepositories abonnementRepositories;
     @Override
-    public Abonnemenet addAbonnement(Abonnemenet e) {
+    public Abonnement addAbonnement(Abonnement e) {
         return abonnementRepositories.save(e);
     }
 
     @Override
-    public Abonnemenet updateAbonnement(Abonnemenet e) {
+    public Abonnement updateAbonnement(Abonnement e) {
         return abonnementRepositories.save(e);
     }
 
     @Override
-    public List<Abonnemenet> getAllAbonnement() {
+    public List<Abonnement> getAllAbonnement() {
         return abonnementRepositories.findAll();
     }
 
     @Override
-    public Abonnemenet getAbonnementById(long idE) {
+    public Abonnement getAbonnementById(long idE) {
         return abonnementRepositories.findById(idE).orElse(null);
     }
 

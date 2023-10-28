@@ -1,7 +1,7 @@
 package tn.etudedecas.stationdeski.Respositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import tn.etudedecas.stationdeski.Entities.Abonnemenet;
+import tn.etudedecas.stationdeski.Entities.Abonnement;
 
-public interface AbonnementRepositories extends JpaRepository<Abonnemenet,Long> {
+public interface AbonnementRepositories extends JpaRepository<Abonnement,Long> {
 }

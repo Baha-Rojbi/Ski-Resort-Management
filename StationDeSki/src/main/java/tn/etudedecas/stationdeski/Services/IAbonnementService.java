@@ -1,13 +1,13 @@
 package tn.etudedecas.stationdeski.Services;
 
-import tn.etudedecas.stationdeski.Entities.Abonnemenet;
+import tn.etudedecas.stationdeski.Entities.Abonnement;
 
 import java.util.List;
 
 public interface IAbonnementService {
-    public Abonnemenet addAbonnement(Abonnemenet e);
-    public Abonnemenet updateAbonnement(Abonnemenet e);
-    public List<Abonnemenet> getAllAbonnement();
-    public Abonnemenet getAbonnementById(long idE);
+    public Abonnement addAbonnement(Abonnement e);
+    public Abonnement updateAbonnement(Abonnement e);
+    public List<Abonnement> getAllAbonnement();
+    public Abonnement getAbonnementById(long idE);
     public void deleteAbonnement(long idE);
 }

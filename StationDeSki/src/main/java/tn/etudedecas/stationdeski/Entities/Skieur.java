@@ -30,5 +30,5 @@ public class Skieur implements Serializable {
     @OneToMany(mappedBy = "skieur")
     private Set<Inscription> inscriptions;
     @OneToOne
-    private Abonnemenet abonnemenet;
+    private Abonnement abonnement;
 }
