@@ -11,27 +11,28 @@ import java.util.List;
 public class AbonnementServiceImp implements IAbonnementService{
     public AbonnementRepositories abonnementRepositories;
     @Override
-    public Abonnement addAbonnement(Abonnement e) {
-        return abonnementRepositories.save(e);
+    public Abonnement addAbonnement(Abonnement abonnement) {
+        return abonnementRepositories.save(abonnement);
     }
 
     @Override
-    public Abonnement updateAbonnement(Abonnement e) {
-        return abonnementRepositories.save(e);
+    public Abonnement updateAbonnement(Abonnement abonnement) {
+        return abonnementRepositories.save(abonnement);
     }
 
     @Override
-    public List<Abonnement> getAllAbonnement() {
+    public List<Abonnement> retrieveAllAbonnements() {
         return abonnementRepositories.findAll();
     }
 
     @Override
-    public Abonnement getAbonnementById(long idE) {
-        return abonnementRepositories.findById(idE).orElse(null);
+    public Abonnement retrieveAbonnement(long numAbon) {
+        return abonnementRepositories.findById(numAbon).orElse(null);
     }
 
+
     @Override
-    public void deleteAbonnement(long idE) {
-        abonnementRepositories.deleteById(idE);
+    public void deleteAbonnement(long numAbon) {
+        abonnementRepositories.deleteById(numAbon);
     }
 }

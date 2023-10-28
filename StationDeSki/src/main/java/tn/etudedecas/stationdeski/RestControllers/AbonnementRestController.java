@@ -12,24 +12,24 @@ import java.util.List;
 public class AbonnementRestController {
     private IAbonnementService iAbonnementService;
     @PostMapping("/addAbonnement")
-    public Abonnement addAbonnement(@RequestBody Abonnement E) {
-        return iAbonnementService.addAbonnement(E);
+    public Abonnement addAbonnement(@RequestBody Abonnement abonnement) {
+        return iAbonnementService.addAbonnement(abonnement);
     }
     @PutMapping("/updateAbonnement")
-    public Abonnement updateAbonnement(@RequestBody Abonnement E) {
-        return iAbonnementService.updateAbonnement(E);
+    public Abonnement updateAbonnement(@RequestBody Abonnement abonnement) {
+        return iAbonnementService.updateAbonnement(abonnement);
     }
-    @GetMapping("/showAbonnement")
-    public List<Abonnement> getAllAbonnement(){
-        return iAbonnementService.getAllAbonnement();
+    @GetMapping("/retrieveAllAbonnements")
+    public List<Abonnement> retrieveAllAbonnements(){
+        return iAbonnementService.retrieveAllAbonnements();
     }
-    @GetMapping("/showAbById/{idE}")
-    public Abonnement getAbonnementById(@PathVariable  long idE){
-        return iAbonnementService.getAbonnementById(idE);
+    @GetMapping("/retrieveAbonnement/{numAbon}")
+    public Abonnement retrieveAbonnement(@PathVariable  long numAbon){
+        return iAbonnementService.retrieveAbonnement(numAbon);
     }
-    @DeleteMapping("/deleteAbonnement/{idE}")
-    public void deleteAbonnement(@PathVariable long idE){
-        iAbonnementService.deleteAbonnement(idE);
+    @DeleteMapping("/deleteAbonnement/{numAbon}")
+    public void deleteAbonnement(@PathVariable long numAbon){
+        iAbonnementService.deleteAbonnement(numAbon);
     }
 
 }
