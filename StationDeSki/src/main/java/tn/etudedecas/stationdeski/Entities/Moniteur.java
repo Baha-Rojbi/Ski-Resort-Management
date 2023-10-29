@@ -17,6 +17,7 @@ import java.util.Set;
 @Entity
 public class Moniteur implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long numMoniteur;
     private String nomM;
     private String prenomM;

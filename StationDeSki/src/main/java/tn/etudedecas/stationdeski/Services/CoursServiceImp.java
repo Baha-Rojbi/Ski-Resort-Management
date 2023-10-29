@@ -16,23 +16,18 @@ public CoursRepositories coursRepositories;
     public Cours addCours(Cours cours) {
         return coursRepositories.save(cours);
     }
-
     @Override
     public Cours updateCours(Cours cours) {
         return coursRepositories.save(cours);
     }
-
     @Override
     public List<Cours> retriveAllCourses() {
         return coursRepositories.findAll();
     }
-
     @Override
     public Cours retrieveCours(long numsCours) {
         return coursRepositories.findById(numsCours).orElse(null);
     }
-
-
     @Override
     public void deleteCours(long numsCours) {
         coursRepositories.deleteById(numsCours);
