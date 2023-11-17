@@ -10,5 +10,6 @@ public interface ISkieurService {
     public List<Skieur> retrieveAllSkieurs();
     public Skieur retrieveSkieur(long numSkieur);
     public void deleteSkieur(long numSkieur);
+    public Skieur AssignSkieurToPiste(Long numSkieur,Long numPiste);
 
 }

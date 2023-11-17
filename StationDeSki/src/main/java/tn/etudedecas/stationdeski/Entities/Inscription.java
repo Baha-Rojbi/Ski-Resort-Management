@@ -1,5 +1,6 @@
 package tn.etudedecas.stationdeski.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,10 +17,13 @@ import java.io.Serializable;
 public class Inscription implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long numInscription;
     private int numSemaine;
+    @JsonIgnore
     @ManyToOne
     private Skieur skieur;
+    @JsonIgnore
     @ManyToOne
     private Cours cours;
 }

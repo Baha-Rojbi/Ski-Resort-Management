@@ -10,5 +10,6 @@ public interface IMoniteurService {
     public List<Moniteur> retrieveAllMoniteurs();
     public Moniteur retrieveMoniteur(long numMoniteur);
     public void deleteMoniteur(long numMoniteur);
+    public Moniteur addMoniteurAndAssignToCours(Moniteur moniteur,Long numCours);
 
 }

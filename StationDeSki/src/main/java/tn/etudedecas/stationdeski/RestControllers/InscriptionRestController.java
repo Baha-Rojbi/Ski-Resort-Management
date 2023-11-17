@@ -34,4 +34,8 @@ public class InscriptionRestController {
     public Inscription addInscriptionAndAssignToSkieur(@RequestBody Inscription inscription,@PathVariable Long numSkieur){
        return iInscriptionService.addInscriptionAndAssignToSkieur(inscription,numSkieur);
     }
+    @PostMapping("addInscriptionAndAssignToCours/{numCours}")
+    public Inscription addInscriptionAndAssignToCours(@RequestBody Inscription inscription,@PathVariable Long numCours){
+        return iInscriptionService.addInscriptionAndAssignToCours(inscription,numCours);
+    }
 }

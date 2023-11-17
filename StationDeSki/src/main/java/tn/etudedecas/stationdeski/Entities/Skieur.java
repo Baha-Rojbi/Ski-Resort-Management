@@ -1,5 +1,6 @@
 package tn.etudedecas.stationdeski.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,6 +26,7 @@ public class Skieur implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dateNaissance;
     private String ville;
+    @JsonIgnore
     @ManyToMany(mappedBy = "skieurs")
     private Set<Piste> pistes;
     @OneToMany(mappedBy = "skieur")
