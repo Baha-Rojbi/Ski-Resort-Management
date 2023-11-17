@@ -30,4 +30,8 @@ public class InscriptionRestController {
     public void deleteInscription(@PathVariable long numInscription){
         iInscriptionService.deleteInscription(numInscription);
     }
+    @PostMapping("addInscriptionAndAssignToSkieur/{numSkieur}")
+    public Inscription addInscriptionAndAssignToSkieur(@RequestBody Inscription inscription,@PathVariable Long numSkieur){
+       return iInscriptionService.addInscriptionAndAssignToSkieur(inscription,numSkieur);
+    }
 }

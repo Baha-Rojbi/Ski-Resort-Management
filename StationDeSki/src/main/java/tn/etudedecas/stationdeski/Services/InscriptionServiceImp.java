@@ -3,13 +3,18 @@ package tn.etudedecas.stationdeski.Services;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.etudedecas.stationdeski.Entities.Inscription;
+import tn.etudedecas.stationdeski.Entities.Skieur;
 import tn.etudedecas.stationdeski.Respositories.InscriptionRepositories;
+import tn.etudedecas.stationdeski.Respositories.SkieurRepositories;
 
 import java.util.List;
+import java.util.Set;
+
 @Service
 @AllArgsConstructor
 public class InscriptionServiceImp implements IInscriptionService{
     public InscriptionRepositories inscriptionRepositories;
+    public SkieurRepositories skieurRepositories;
 
     @Override
     public Inscription addInscription(Inscription inscription) {
@@ -34,5 +39,12 @@ public class InscriptionServiceImp implements IInscriptionService{
     @Override
     public void deleteInscription(long numInscription) {
         inscriptionRepositories.deleteById(numInscription);
+    }
+
+    @Override
+    public Inscription addInscriptionAndAssignToSkieur(Inscription inscription, Long numSkieur) {
+        Skieur skieur=skieurRepositories.findById(numSkieur).orElse(null);
+        inscription.setSkieur(skieur);
+        return inscriptionRepositories.save(inscription);
     }
 }

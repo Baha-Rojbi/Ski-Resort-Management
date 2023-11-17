@@ -10,4 +10,5 @@ public interface IInscriptionService {
     public List<Inscription> retrieveAllInscriptions();
     public Inscription retrieveInscription(long numInscription);
     public void deleteInscription(long numInscription);
+    public Inscription addInscriptionAndAssignToSkieur(Inscription inscription,Long numSkieur);
 }

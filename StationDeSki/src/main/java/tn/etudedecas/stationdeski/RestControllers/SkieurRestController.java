@@ -30,4 +30,5 @@ public class SkieurRestController {
     public void deleteSkieur(@PathVariable long numSkieur) {
         iSkieurService.deleteSkieur(numSkieur);
     }
+
 }
