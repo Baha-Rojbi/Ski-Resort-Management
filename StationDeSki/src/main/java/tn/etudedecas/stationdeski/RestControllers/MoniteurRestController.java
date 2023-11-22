@@ -31,4 +31,8 @@ public class MoniteurRestController {
     public void deleteMoniteur(@PathVariable long numMoniteur) {
         iMoniteurService.deleteMoniteur(numMoniteur);
     }
+    @PostMapping("/addMoniteurAndAssignToCours/{numCours}")
+    public Moniteur addMoniteurAndAssignToCours(@RequestBody Moniteur moniteur,@PathVariable Long numCours){
+    return iMoniteurService.addMoniteurAndAssignToCours(moniteur,numCours);
+    }
 }

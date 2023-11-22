@@ -46,6 +46,5 @@ public class MoniteurServiceImp implements IMoniteurService{
         moniteur.getCours().add(cours);
         moniteurRepositories.save(moniteur);
         return moniteur;
-
     }
 }
