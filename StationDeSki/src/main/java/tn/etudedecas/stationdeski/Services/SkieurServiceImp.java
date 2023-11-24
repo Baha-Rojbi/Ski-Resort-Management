@@ -55,8 +55,7 @@ public class SkieurServiceImp implements ISkieurService{
     @Override
     public Skieur addSkierAndAssignToCourse(Skieur skieur, Long numCourse) {
         /// trouver le cours
-        Cours cours = coursRepositories.findById(numCourse)
-                .orElseThrow(() -> new RuntimeException("Course not found with id: " + numCourse));
+        Cours cours = coursRepositories.findById(numCourse).orElse(null);
         // save skieur
         Skieur savedSkieur = skieurRepositories.save(skieur);
         // Create and set Abonnement for Skieur
@@ -67,9 +66,14 @@ public class SkieurServiceImp implements ISkieurService{
         Inscription inscription = new Inscription();
         inscription.setCours(cours);
         inscription.setSkieur(savedSkieur);
-        // Set Inscription properties
+        // Set Inscription
         savedSkieur.setInscriptions(Set.of(inscription));
-        // Save the Skieur again to persist the changes
+        // Save the Skieur
         return skieurRepositories.save(savedSkieur);
+    }
+
+    @Override
+    public List<Skieur> retrieveSkiersBySubscriptionType(TypeAbonnement typeAbonnement) {
+        return skieurRepositories.findAllByAbonnementTypeAbon(typeAbonnement);
     }
 }

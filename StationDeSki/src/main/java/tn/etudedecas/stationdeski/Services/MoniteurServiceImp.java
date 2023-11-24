@@ -7,7 +7,10 @@ import tn.etudedecas.stationdeski.Entities.Moniteur;
 import tn.etudedecas.stationdeski.Respositories.CoursRepositories;
 import tn.etudedecas.stationdeski.Respositories.MoniteurRepositories;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 @Service
 @AllArgsConstructor
 public class MoniteurServiceImp implements IMoniteurService{
@@ -43,7 +46,9 @@ public class MoniteurServiceImp implements IMoniteurService{
     @Override
     public Moniteur addMoniteurAndAssignToCours(Moniteur moniteur, Long numCours) {
         Cours cours=coursRepositories.findById(numCours).orElse(null);
-        moniteur.getCours().add(cours);
+        Set<Cours> coursSet = new HashSet<>();
+        coursSet.add(cours);
+        moniteur.setCours(coursSet);
         moniteurRepositories.save(moniteur);
         return moniteur;
     }

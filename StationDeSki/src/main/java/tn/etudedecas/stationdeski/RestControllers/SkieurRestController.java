@@ -3,6 +3,7 @@ package tn.etudedecas.stationdeski.RestControllers;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.etudedecas.stationdeski.Entities.Skieur;
+import tn.etudedecas.stationdeski.Entities.TypeAbonnement;
 import tn.etudedecas.stationdeski.Services.ISkieurService;
 
 import java.util.List;
@@ -37,5 +38,9 @@ public class SkieurRestController {
     @PostMapping("addSkierAndAssignToCourse/{numCourse}")
     public Skieur addSkierAndAssignToCourse(@RequestBody Skieur skieur,@PathVariable Long numCourse){
     return iSkieurService.addSkierAndAssignToCourse(skieur,numCourse);
+    }
+    @GetMapping("retrieveSkiersBySubscriptionType/{typeAbonnement}")
+    public List<Skieur> retrieveSkiersBySubscriptionType(@PathVariable TypeAbonnement typeAbonnement){
+    return iSkieurService.retrieveSkiersBySubscriptionType(typeAbonnement);
     }
 }

@@ -1,6 +1,7 @@
 package tn.etudedecas.stationdeski.Services;
 
 import tn.etudedecas.stationdeski.Entities.Skieur;
+import tn.etudedecas.stationdeski.Entities.TypeAbonnement;
 
 import java.util.List;
 
@@ -14,5 +15,6 @@ public interface ISkieurService {
 
 ///////the toughest one yet
     Skieur addSkierAndAssignToCourse(Skieur skieur, Long numCourse);
+    public List<Skieur> retrieveSkiersBySubscriptionType(TypeAbonnement typeAbonnement);
 
 }

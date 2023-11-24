@@ -17,7 +17,6 @@ import java.io.Serializable;
 public class Inscription implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long numInscription;
     private int numSemaine;
     @JsonIgnore
