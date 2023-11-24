@@ -43,4 +43,8 @@ public class SkieurRestController {
     public List<Skieur> retrieveSkiersBySubscriptionType(@PathVariable TypeAbonnement typeAbonnement){
     return iSkieurService.retrieveSkiersBySubscriptionType(typeAbonnement);
     }
+    @PostMapping("addSkieurAndAbonnement")
+    public Skieur addSkieurAndAbonnement(@RequestBody Skieur skieur){
+    return iSkieurService.addSkieurAndAbonnement(skieur);
+    }
 }

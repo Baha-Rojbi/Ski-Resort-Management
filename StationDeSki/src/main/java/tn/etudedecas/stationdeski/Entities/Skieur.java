@@ -31,6 +31,6 @@ public class Skieur implements Serializable {
     private Set<Piste> pistes;
     @OneToMany(mappedBy = "skieur" , cascade = CascadeType.ALL)
     private Set<Inscription> inscriptions;
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToOne(cascade = CascadeType.ALL)
     private Abonnement abonnement;
 }

@@ -54,26 +54,33 @@ public class SkieurServiceImp implements ISkieurService{
 
     @Override
     public Skieur addSkierAndAssignToCourse(Skieur skieur, Long numCourse) {
+        // ajouter le skieur
+        Skieur savedSkieur = skieurRepositories.save(skieur);
         /// trouver le cours
         Cours cours = coursRepositories.findById(numCourse).orElse(null);
-        // save skieur
-        Skieur savedSkieur = skieurRepositories.save(skieur);
-        // Create and set Abonnement for Skieur
-        Abonnement abonnement = new Abonnement();
-        savedSkieur.setAbonnement(abonnement);
-
-        // creer inscription
-        Inscription inscription = new Inscription();
-        inscription.setCours(cours);
-        inscription.setSkieur(savedSkieur);
-        // Set Inscription
-        savedSkieur.setInscriptions(Set.of(inscription));
-        // Save the Skieur
+        /// creer inscriptio,
+        Set<Inscription> inscriptions=savedSkieur.getInscriptions();
+        for(Inscription inscription:inscriptions){
+            inscription.setSkieur(savedSkieur);
+            inscription.setCours(cours);
+            inscriptionRepositories.save(inscription);
+        }
+        addSkieurAndAbonnement(skieur);
+        //else Save the Skieur
         return skieurRepositories.save(savedSkieur);
     }
 
     @Override
     public List<Skieur> retrieveSkiersBySubscriptionType(TypeAbonnement typeAbonnement) {
-        return skieurRepositories.findAllByAbonnementTypeAbon(typeAbonnement);
+        return skieurRepositories.findByAbonnementTypeAbon(typeAbonnement);
+    }
+
+    @Override
+    public Skieur addSkieurAndAbonnement(Skieur skieur) {
+
+      Abonnement abonnement= abonnementRepositories.save(skieur.getAbonnement());
+       return skieurRepositories.save(skieur);
+
+
     }
 }
