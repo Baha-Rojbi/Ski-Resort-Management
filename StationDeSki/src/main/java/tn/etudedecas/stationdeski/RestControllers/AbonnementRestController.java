@@ -3,9 +3,11 @@ package tn.etudedecas.stationdeski.RestControllers;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.etudedecas.stationdeski.Entities.Abonnement;
+import tn.etudedecas.stationdeski.Entities.TypeAbonnement;
 import tn.etudedecas.stationdeski.Services.IAbonnementService;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @AllArgsConstructor
@@ -31,5 +33,8 @@ public class AbonnementRestController {
     public void deleteAbonnement(@PathVariable long numAbon){
         iAbonnementService.deleteAbonnement(numAbon);
     }
-
+    @GetMapping("/getAbonnementByType/{typeAbonnement}")
+    public Set<Abonnement> getAbonnementByType(@PathVariable TypeAbonnement typeAbonnement){
+        return iAbonnementService.getAbonnementByType(typeAbonnement);
+    }
 }
