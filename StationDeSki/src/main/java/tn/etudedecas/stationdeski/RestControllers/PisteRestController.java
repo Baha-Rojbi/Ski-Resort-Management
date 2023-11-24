@@ -3,6 +3,7 @@ package tn.etudedecas.stationdeski.RestControllers;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.etudedecas.stationdeski.Entities.Piste;
+import tn.etudedecas.stationdeski.Entities.Skieur;
 import tn.etudedecas.stationdeski.Services.IPisteService;
 
 import java.util.List;
@@ -30,5 +31,9 @@ public class PisteRestController {
 @DeleteMapping("/deletePiste/{numPiste}")
     public void deletePiste(@PathVariable long numPiste) {
         iPisteService.deletePiste(numPiste);
+    }
+    @PostMapping("AssignPisteToSkieur/{numSkieur}/{numPiste}")
+    public Piste AssignPisteToSkieur(@PathVariable Long numSkieur,@PathVariable Long numPiste){
+    return iPisteService.AssignPisteToSkieur(numSkieur,numPiste);
     }
 }

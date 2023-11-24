@@ -12,4 +12,7 @@ public interface ISkieurService {
     public void deleteSkieur(long numSkieur);
     public Skieur AssignSkieurToPiste(Long numSkieur,Long numPiste);
 
+///////the toughest one yet
+    Skieur addSkierAndAssignToCourse(Skieur skieur, Long numCourse);
+
 }

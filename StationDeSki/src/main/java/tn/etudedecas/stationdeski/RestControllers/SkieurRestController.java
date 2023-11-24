@@ -34,4 +34,8 @@ public class SkieurRestController {
     public Skieur AssignSkieurToPiste(@PathVariable Long numSkieur,@PathVariable Long numPiste){
     return iSkieurService.AssignSkieurToPiste(numSkieur,numPiste);
     }
+    @PostMapping("addSkierAndAssignToCourse/{numCourse}")
+    public Skieur addSkierAndAssignToCourse(@RequestBody Skieur skieur,@PathVariable Long numCourse){
+    return iSkieurService.addSkierAndAssignToCourse(skieur,numCourse);
+    }
 }

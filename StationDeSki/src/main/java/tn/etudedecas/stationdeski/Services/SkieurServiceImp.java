@@ -2,10 +2,8 @@ package tn.etudedecas.stationdeski.Services;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import tn.etudedecas.stationdeski.Entities.Piste;
-import tn.etudedecas.stationdeski.Entities.Skieur;
-import tn.etudedecas.stationdeski.Respositories.PisteRepositories;
-import tn.etudedecas.stationdeski.Respositories.SkieurRepositories;
+import tn.etudedecas.stationdeski.Entities.*;
+import tn.etudedecas.stationdeski.Respositories.*;
 
 import java.util.List;
 import java.util.Set;
@@ -16,6 +14,9 @@ import java.util.Set;
 public class SkieurServiceImp implements ISkieurService{
     public SkieurRepositories skieurRepositories;
     public PisteRepositories pisteRepositories;
+    public AbonnementRepositories abonnementRepositories;
+    public InscriptionRepositories inscriptionRepositories;
+    public CoursRepositories coursRepositories;
 
     @Override
     public Skieur addSkieur(Skieur skieur) {
@@ -49,5 +50,26 @@ public class SkieurServiceImp implements ISkieurService{
         piste.getSkieurs().add(skieur);
          pisteRepositories.save(piste);
          return skieur;
+    }
+
+    @Override
+    public Skieur addSkierAndAssignToCourse(Skieur skieur, Long numCourse) {
+        /// trouver le cours
+        Cours cours = coursRepositories.findById(numCourse)
+                .orElseThrow(() -> new RuntimeException("Course not found with id: " + numCourse));
+        // save skieur
+        Skieur savedSkieur = skieurRepositories.save(skieur);
+        // Create and set Abonnement for Skieur
+        Abonnement abonnement = new Abonnement();
+        savedSkieur.setAbonnement(abonnement);
+
+        // creer inscription
+        Inscription inscription = new Inscription();
+        inscription.setCours(cours);
+        inscription.setSkieur(savedSkieur);
+        // Set Inscription properties
+        savedSkieur.setInscriptions(Set.of(inscription));
+        // Save the Skieur again to persist the changes
+        return skieurRepositories.save(savedSkieur);
     }
 }

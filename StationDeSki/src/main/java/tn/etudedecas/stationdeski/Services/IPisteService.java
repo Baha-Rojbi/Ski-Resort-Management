@@ -10,4 +10,5 @@ public interface IPisteService {
     public List<Piste> retrieveAllPistes();
     public Piste retrievePiste(long numPiste);
     public void deletePiste(long numPiste);
+    public Piste AssignPisteToSkieur(Long numSkieur, Long numPiste);
 }

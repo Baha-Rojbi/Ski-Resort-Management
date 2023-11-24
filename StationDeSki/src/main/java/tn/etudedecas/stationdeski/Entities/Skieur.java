@@ -29,8 +29,8 @@ public class Skieur implements Serializable {
     @JsonIgnore
     @ManyToMany(mappedBy = "skieurs")
     private Set<Piste> pistes;
-    @OneToMany(mappedBy = "skieur")
+    @OneToMany(mappedBy = "skieur" , cascade = CascadeType.ALL)
     private Set<Inscription> inscriptions;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Abonnement abonnement;
 }
