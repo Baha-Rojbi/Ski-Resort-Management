@@ -1,6 +1,9 @@
 package tn.etudedecas.stationdeski.Services;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.java.Log;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import tn.etudedecas.stationdeski.Entities.*;
 import tn.etudedecas.stationdeski.Respositories.*;
@@ -10,7 +13,7 @@ import java.util.Set;
 
 @Service
 @AllArgsConstructor
-
+@Slf4j
 public class SkieurServiceImp implements ISkieurService{
     public SkieurRepositories skieurRepositories;
     public PisteRepositories pisteRepositories;
@@ -83,4 +86,8 @@ public class SkieurServiceImp implements ISkieurService{
 
 
     }
+/*    @Scheduled(fixedRate = 6000)
+    public void fixedRateMethod(){
+log.info("Method with fixed Rate");
+    }*/
 }
