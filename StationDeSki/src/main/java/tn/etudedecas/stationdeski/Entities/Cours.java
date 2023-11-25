@@ -25,5 +25,4 @@ public class Cours implements Serializable {
     private int creneau;
     @OneToMany(mappedBy = "cours")
     private Set<Inscription>inscriptions;
-
 }

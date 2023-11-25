@@ -1,6 +1,8 @@
 package tn.etudedecas.stationdeski.Respositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import tn.etudedecas.stationdeski.Entities.Cours;
 import tn.etudedecas.stationdeski.Entities.Support;
 

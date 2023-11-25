@@ -16,7 +16,6 @@ import java.util.Set;
 @NoArgsConstructor
 @ToString
 @Entity
-
 public class Skieur implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

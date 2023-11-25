@@ -3,6 +3,7 @@ package tn.etudedecas.stationdeski.RestControllers;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.etudedecas.stationdeski.Entities.Moniteur;
+import tn.etudedecas.stationdeski.Entities.Support;
 import tn.etudedecas.stationdeski.Services.IMoniteurService;
 
 import java.util.List;
@@ -34,5 +35,9 @@ public class MoniteurRestController {
     @PostMapping("/addMoniteurAndAssignToCours/{numCours}")
     public Moniteur addMoniteurAndAssignToCours(@RequestBody Moniteur moniteur,@PathVariable Long numCours){
     return iMoniteurService.addMoniteurAndAssignToCours(moniteur,numCours);
+    }
+    @GetMapping("/numWeeksCoursOfMoniteurBySupport/{numMoniteur}/{support}")
+    public List<Integer> numWeeksCoursOfMoniteurBySupport(@PathVariable Long numMoniteur,@PathVariable Support support){
+    return iMoniteurService.numWeeksCoursOfMoniteurBySupport(numMoniteur,support);
     }
 }

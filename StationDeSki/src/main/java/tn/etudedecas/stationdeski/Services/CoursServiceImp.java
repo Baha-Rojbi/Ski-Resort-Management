@@ -4,7 +4,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.etudedecas.stationdeski.Entities.Couleur;
 import tn.etudedecas.stationdeski.Entities.Cours;
+import tn.etudedecas.stationdeski.Entities.Support;
 import tn.etudedecas.stationdeski.Respositories.CoursRepositories;
+import tn.etudedecas.stationdeski.Respositories.MoniteurRepositories;
 
 import java.util.List;
 
@@ -12,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 public class CoursServiceImp implements ICoursService{
 public CoursRepositories coursRepositories;
+public MoniteurRepositories moniteurRepositories;
     @Override
     public Cours addCours(Cours cours) {
         return coursRepositories.save(cours);
@@ -32,4 +35,6 @@ public CoursRepositories coursRepositories;
     public void deleteCours(long numsCours) {
         coursRepositories.deleteById(numsCours);
     }
+
+
 }
