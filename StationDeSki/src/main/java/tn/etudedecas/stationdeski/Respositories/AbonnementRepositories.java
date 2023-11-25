@@ -6,9 +6,13 @@ import tn.etudedecas.stationdeski.Entities.Abonnement;
 import tn.etudedecas.stationdeski.Entities.TypeAbonnement;
 
 import java.time.LocalDate;
+import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 public interface AbonnementRepositories extends JpaRepository<Abonnement,Long> {
 public Set<Abonnement> findByTypeAbonOrderByDateDebut (TypeAbonnement typeAbonnement);
-/////public Set<Abonnement> findByDateDebutBetween(LocalDate dateDebut,LocalDate dateFin);
+/// retrieve abonnement entre deux dates
+public List<Abonnement> findByDateDebutBetween(Date dateDebut, Date dateFin);
+
 }

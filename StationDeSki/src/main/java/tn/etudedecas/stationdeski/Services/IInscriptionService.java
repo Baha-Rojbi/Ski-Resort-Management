@@ -13,4 +13,6 @@ public interface IInscriptionService {
     public void deleteInscription(long numInscription);
     public Inscription addInscriptionAndAssignToSkieur(Inscription inscription,Long numSkieur);
     public Inscription addInscriptionAndAssignToCours(Inscription inscription,Long numCours);
+    //ajouter une inscri et l affecter a un skieur et un cours
+    public Inscription addInscriptionAndAssignToSkieurAndCours(Inscription inscription,Long numSkieur, Long numCours);
 }

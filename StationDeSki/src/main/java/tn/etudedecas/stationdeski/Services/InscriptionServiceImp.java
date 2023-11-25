@@ -57,4 +57,14 @@ public class InscriptionServiceImp implements IInscriptionService{
         inscription.setCours(cours);
         return inscriptionRepositories.save(inscription);
     }
+/////Ajouter inscription avec cours ne depasse pas 6skieurs par Cours
+    ///// A completer la condition
+    @Override
+    public Inscription addInscriptionAndAssignToSkieurAndCours(Inscription inscription, Long numSkieur, Long numCours) {
+        Skieur skieur=skieurRepositories.findById(numSkieur).orElse(null);
+        Cours cours=coursRepositories.findById(numCours).orElse(null);
+        inscription.setSkieur(skieur);
+        inscription.setCours(cours);
+        return inscription;
+    }
 }

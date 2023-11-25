@@ -39,6 +39,7 @@ public class SkieurRestController {
     public Skieur addSkierAndAssignToCourse(@RequestBody Skieur skieur,@PathVariable Long numCourse){
     return iSkieurService.addSkierAndAssignToCourse(skieur,numCourse);
     }
+    ///retrieve skieur par type d abonnement
     @GetMapping("retrieveSkiersBySubscriptionType/{typeAbonnement}")
     public List<Skieur> retrieveSkiersBySubscriptionType(@PathVariable TypeAbonnement typeAbonnement){
     return iSkieurService.retrieveSkiersBySubscriptionType(typeAbonnement);
