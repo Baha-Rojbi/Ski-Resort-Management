@@ -3,6 +3,7 @@ package tn.etudedecas.stationdeski.RestControllers;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.etudedecas.stationdeski.Entities.Inscription;
+import tn.etudedecas.stationdeski.Entities.Support;
 import tn.etudedecas.stationdeski.Services.IInscriptionService;
 
 import java.util.List;
@@ -42,5 +43,9 @@ public class InscriptionRestController {
     public Inscription addInscriptionAndAssignToSkieurAndCours(@RequestBody Inscription inscription,@PathVariable Long numSkieur,@PathVariable Long numCours)
     {
         return iInscriptionService.addInscriptionAndAssignToSkieurAndCours(inscription,numSkieur,numCours);
+    }
+    @GetMapping("/numWeeksCoursOfMoniteurBySupportQuery/{numMoniteur}/{support}")
+    public List<Integer> numWeeksCoursOfMoniteurBySupportQuery(@PathVariable Long numMoniteur,@PathVariable Support support){
+        return iInscriptionService.numWeeksCoursOfMoniteurBySupportQuery(numMoniteur,support);
     }
 }

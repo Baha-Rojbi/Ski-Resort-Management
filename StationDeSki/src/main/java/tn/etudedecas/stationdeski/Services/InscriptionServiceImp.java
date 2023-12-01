@@ -3,10 +3,7 @@ package tn.etudedecas.stationdeski.Services;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import tn.etudedecas.stationdeski.Entities.Cours;
-import tn.etudedecas.stationdeski.Entities.Inscription;
-import tn.etudedecas.stationdeski.Entities.Skieur;
-import tn.etudedecas.stationdeski.Entities.TypeCours;
+import tn.etudedecas.stationdeski.Entities.*;
 import tn.etudedecas.stationdeski.Respositories.CoursRepositories;
 import tn.etudedecas.stationdeski.Respositories.InscriptionRepositories;
 import tn.etudedecas.stationdeski.Respositories.SkieurRepositories;
@@ -82,5 +79,10 @@ public class InscriptionServiceImp implements IInscriptionService{
         inscription.setCours(cours);
         // Save the inscription
         return inscriptionRepositories.save(inscription);
+    }
+
+    @Override
+    public List<Integer> numWeeksCoursOfMoniteurBySupportQuery(Long numMoniteur, Support support) {
+        return inscriptionRepositories.numWeeksCoursOfMoniteurBySupportQuery(numMoniteur,support);
     }
 }
