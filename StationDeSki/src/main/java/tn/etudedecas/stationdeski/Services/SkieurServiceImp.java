@@ -81,7 +81,7 @@ public class SkieurServiceImp implements ISkieurService{
     @Override
     public Skieur addSkieurAndAbonnement(Skieur skieur) {
 
-      Abonnement abonnement= abonnementRepositories.save(skieur.getAbonnement());
+      Abonnement abonnement= abonnementRepositories.save(skieur.getAbonnement() );
        return skieurRepositories.save(skieur);
 
 

@@ -25,7 +25,7 @@ public class Skieur implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dateNaissance;
     private String ville;
-    @JsonIgnore
+@JsonIgnore
     @ManyToMany(mappedBy = "skieurs")
     private Set<Piste> pistes;
     @OneToMany(mappedBy = "skieur" , cascade = CascadeType.ALL)

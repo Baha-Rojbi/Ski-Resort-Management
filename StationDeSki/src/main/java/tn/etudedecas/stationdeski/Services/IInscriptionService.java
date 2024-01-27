@@ -16,5 +16,6 @@ public interface IInscriptionService {
     public Inscription addInscriptionAndAssignToCours(Inscription inscription,Long numCours);
     //ajouter une inscri et l affecter a un skieur et un cours
     public Inscription addInscriptionAndAssignToSkieurAndCours(Inscription inscription,Long numSkieur, Long numCours);
+    public Inscription assignInscriptionToCours(Long numInscription,Long numCours);
     public List<Integer> numWeeksCoursOfMoniteurBySupportQuery(Long numMoniteur, Support support);
 }

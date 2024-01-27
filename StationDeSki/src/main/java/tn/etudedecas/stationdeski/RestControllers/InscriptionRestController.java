@@ -48,4 +48,8 @@ public class InscriptionRestController {
     public List<Integer> numWeeksCoursOfMoniteurBySupportQuery(@PathVariable Long numMoniteur,@PathVariable Support support){
         return iInscriptionService.numWeeksCoursOfMoniteurBySupportQuery(numMoniteur,support);
     }
+    @PutMapping("/assignInscriptionToCours/{numInscription}/{numCours}")
+    public Inscription assignInscriptionToCours(@PathVariable Long numInscription,@PathVariable Long numCours){
+        return iInscriptionService.assignInscriptionToCours(numInscription,numCours);
+    }
 }

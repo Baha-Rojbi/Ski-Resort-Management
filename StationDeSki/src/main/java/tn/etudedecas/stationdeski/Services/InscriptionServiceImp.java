@@ -49,9 +49,9 @@ public class InscriptionServiceImp implements IInscriptionService{
 
     @Override
     public Inscription addInscriptionAndAssignToSkieur(Inscription inscription, Long numSkieur) {
-        Skieur skieur=skieurRepositories.findById(numSkieur).orElse(null);
-        inscription.setSkieur(skieur);
-        return inscriptionRepositories.save(inscription);
+        Skieur skieur=skieurRepositories.findById(numSkieur).orElse(null);//lawejna aal skieur
+        inscription.setSkieur(skieur);//affectina el skieur lel inscrit teena
+        return inscriptionRepositories.save(inscription);//sajelna el inscrit
     }
 
     @Override
@@ -78,6 +78,14 @@ public class InscriptionServiceImp implements IInscriptionService{
         inscription.setSkieur(skieur);
         inscription.setCours(cours);
         // Save the inscription
+        return inscriptionRepositories.save(inscription);
+    }
+
+    @Override
+    public Inscription assignInscriptionToCours(Long numInscription, Long numCours) {
+        Inscription inscription=inscriptionRepositories.findById(numInscription).orElse(null);
+        Cours cours=coursRepositories.findById(numCours).orElse(null);
+        inscription.setCours(cours);
         return inscriptionRepositories.save(inscription);
     }
 

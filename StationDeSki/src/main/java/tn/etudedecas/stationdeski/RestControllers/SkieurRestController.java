@@ -35,6 +35,24 @@ public class SkieurRestController {
     public Skieur AssignSkieurToPiste(@PathVariable Long numSkieur,@PathVariable Long numPiste){
     return iSkieurService.AssignSkieurToPiste(numSkieur,numPiste);
     }
+    ///POUR TESTER!!!!!!
+    //{
+    //    "nomS":"Samir",
+    //    "prenomS":"Monji",
+    //    "dateNaissance":"2019-07-04",
+    //    "ville":"Sfucks",
+    //    "abonnement":{ "prixAbon":4,
+    //            "typeAbon":"SEMESTRIEL",
+    //            "dateDebut":"2016-01-06",
+    //            "dateFin":"2017-02-05"
+    //            },
+    //            "inscriptions":[{
+    //                "numSemaine":4
+    //
+    //            },{"numSemaine":16}
+    //            ]
+    //
+    //}
     @PostMapping("addSkierAndAssignToCourse/{numCourse}")
     public Skieur addSkierAndAssignToCourse(@RequestBody Skieur skieur,@PathVariable Long numCourse){
     return iSkieurService.addSkierAndAssignToCourse(skieur,numCourse);

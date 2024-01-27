@@ -19,7 +19,7 @@ public class Inscription implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long numInscription;
     private int numSemaine;
-    @JsonIgnore
+@JsonIgnore
     @ManyToOne
     private Skieur skieur;
     @JsonIgnore
